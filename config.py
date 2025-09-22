@@ -22,4 +22,5 @@ KEY_DEFAULTS = {
     'turn_right': pygame.K_d,
     'walk_forward': pygame.K_w,
     'turn_back': pygame.K_s,
+    'sys_menu': pygame.K_ESCAPE
 }

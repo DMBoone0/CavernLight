@@ -20,6 +20,13 @@ class Game:
         self.running = True
 
         self.input_handler = InputHandler()
+
+        self.input_handler.bind_key(KEY_DEFAULTS['sys_menu'], self.quit)
+    
+    def quit(self):
+        self.running = False
+        pygame.quit()
+        exit()
     
     def run(self):
         while self.running:
