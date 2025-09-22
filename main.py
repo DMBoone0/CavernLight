@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 Author: Dillon Boone
 License: MIT
@@ -10,6 +9,8 @@ Primary role is just startup and running the game loop. All logic is deferred to
 
 from config import *
 
+from input_handler import InputHandler
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -17,6 +18,8 @@ class Game:
         pygame.display.set_caption(CAPTION)
         self.clock = pygame.time.Clock()
         self.running = True
+
+        self.input_handler = InputHandler()
     
     def run(self):
         while self.running:
@@ -27,6 +30,10 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
+            
+            keys = pygame.key.get_pressed()
+            self.input_handler.handle_input(keys)
+            
 
 if __name__ == '__main__':
     game = Game()

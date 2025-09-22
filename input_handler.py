@@ -12,10 +12,10 @@ class InputHandler:
 
     # Execute commands for the set of keys passed in
     def handle_input(self, keys):
-        for key in keys:
-            self.keybinds[key]()
-
+        for key in self.keybinds.keys():
+            if keys[key]:
+                self.keybinds[key]()
 
     # Bind key to function
     def bind_key(self, key, function):
-        self.keybinds[key][function]
+        self.keybinds[key] = function
