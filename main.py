@@ -11,10 +11,14 @@ class Game:
     
     def run(self):
         while self.running:
-            dt = self.clock.tick()
+            dt = self.clock.tick() / 1000
             self.screen.fill('black')
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
+
+if __name__ == '__main__':
+    game = Game()
+    game.run()
