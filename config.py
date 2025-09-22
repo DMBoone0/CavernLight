@@ -12,5 +12,12 @@ from pygame import Vector3 as vector3
 from sys import exit
 from os.path import join
 
+# Window info
 WINDOW_WIDTH, WINDOW_HEIGHT = 1280, 720
 CAPTION = 'CavernLight Engine'
+
+# Default keymaps
+MOVE_LEFT = pygame.K_a
+MOVE_RIGHT = pygame.K_d
+MOVE_UP = pygame.K_w
+MOVE_DOWN = pygame.K_s
