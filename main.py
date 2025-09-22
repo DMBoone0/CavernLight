@@ -1,6 +1,15 @@
+#!/usr/bin/env python
+
+"""
+Author: Dillon Boone
+License: MIT
+
+Entrypoint to the 'engine' if that is what this is. Primary nexus of the glue code.
+Primary role is just startup and running the game loop. All logic is deferred to other modules.
+"""
+
 from config import *
 
-# This is the entrypoint for running the engine. Handles gameloop and initial launch. Gluecode.
 class Game:
     def __init__(self):
         pygame.init()

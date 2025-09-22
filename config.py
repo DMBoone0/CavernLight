@@ -1,3 +1,11 @@
+"""
+Author: Dillon Boone
+License: MIT
+
+For now this is going to be the home of the more system-wide constants and imports.
+Will probably be broken up later to match the MVC architecture and separation of concerns.
+"""
+
 import pygame
 from pygame import Vector2 as vector2
 from pygame import Vector3 as vector3
