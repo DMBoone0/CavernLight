@@ -9,6 +9,7 @@ class CommandType(Enum):
     TURN_RIGHT = auto()
     OPEN_MENU = auto()
     QUIT_GAME = auto()
+    MOUSE_CLICK = auto()
 
 @dataclass
 class Command:
