@@ -1,3 +1,4 @@
 # engine/controller/__init__.py
 from .game_controller import GameController
-from .input_handler import InputHandler
+from .command_dispatcher import CommandDispatcher
+from .command import Command

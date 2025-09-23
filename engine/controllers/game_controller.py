@@ -6,7 +6,7 @@ Primary controller for the flow of the engine. Runs the game loop and orchestrat
 """
 import pygame
 from config import *
-from .input_handler import InputHandler
+from .command_dispatcher import CommandDispatcher
 
 class GameController:
     def __init__(self):
@@ -16,9 +16,7 @@ class GameController:
         self.clock = pygame.time.Clock()
         self.running = True
 
-        self.input_handler = InputHandler()
-
-        self.input_handler.bind_key(pygame.K_ESCAPE, self.quit)
+        self.dispatcher = CommandDispatcher()
     
     def quit(self):
         self.running = False
@@ -26,14 +24,18 @@ class GameController:
         exit()
     
     def run(self):
+        # Draw/Render loop
         while self.running:
             dt = self.clock.tick() / 1000
             self.screen.fill('black')
 
+            # Event loop
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
+                else:
+                    pass
             
             keys = pygame.key.get_pressed()
             self.input_handler.handle_input(keys)
