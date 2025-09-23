@@ -18,10 +18,6 @@ class CommandDispatcher:
 
     # Returns event -> command mapping
     def dispatch(self, event: pygame.event.Event):
-        # Explicit handling for quit event
-        if event.type == pygame.QUIT:
-            return Command(CommandType.QUIT_GAME)
-
         # Handle keyboard input
         if event.type == pygame.KEYDOWN:
             key = event.key

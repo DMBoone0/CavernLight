@@ -6,7 +6,7 @@ Primary controller for the flow of the engine. Runs the game loop and orchestrat
 """
 import pygame
 from config import *
-from .command_dispatcher import CommandDispatcher
+from .command_dispatcher import CommandDispatcher, CommandType
 
 class GameController:
     def __init__(self):
@@ -31,11 +31,10 @@ class GameController:
 
             # Event loop
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+                if event == pygame.QUIT:
                     pygame.quit()
                     exit()
                 else:
-                    pass
-            
-            keys = pygame.key.get_pressed()
-            self.input_handler.handle_input(keys)
+                    command = self.dispatcher.dispatch(event)
+                    if command:
+                        print(command)
