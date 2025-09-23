@@ -8,6 +8,5 @@ Entry point to the program. Initializes engine.
 from engine import GameController
 
 if __name__ == '__main__':
-    pass
-    # game = Game()
-    # game.run()
+    game = GameController()
+    game.run()

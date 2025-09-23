@@ -4,6 +4,7 @@ License: MIT
 
 Primary controller for the flow of the engine. Runs the game loop and orchestrates model and view updates.
 """
+import pygame
 from config import *
 from .input_handler import InputHandler
 
@@ -17,7 +18,7 @@ class GameController:
 
         self.input_handler = InputHandler()
 
-        self.input_handler.bind_key(KEY_DEFAULTS['sys_menu'], self.quit)
+        self.input_handler.bind_key(pygame.K_ESCAPE, self.quit)
     
     def quit(self):
         self.running = False
