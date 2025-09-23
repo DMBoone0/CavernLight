@@ -5,7 +5,7 @@ License: MIT
 Primary controller for the flow of the engine. Runs the game loop and orchestrates model and view updates.
 """
 from config import *
-from input_handler import InputHandler
+from .input_handler import InputHandler
 
 class GameController:
     def __init__(self):
