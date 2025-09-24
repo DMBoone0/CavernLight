@@ -24,6 +24,7 @@ class GameController:
         self.dispatcher.bind_key(pygame.K_d, CommandType.TURN_RIGHT)
 
         self.scene = DungeonScene()
+        self.scene.on_enter()
     
     def quit(self):
         self.running = False
