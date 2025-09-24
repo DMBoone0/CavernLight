@@ -14,6 +14,11 @@ class Position:
     y: int
 
 @dataclass
+class Direction:
+    x: int
+    y: int
+
+@dataclass
 class Renderable:
     sprite_id: str
 
