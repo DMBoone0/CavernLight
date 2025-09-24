@@ -14,11 +14,6 @@ class Position:
     y: int
 
 @dataclass
-class Velocity:
-    dx: int
-    dy: int
-
-@dataclass
 class Renderable:
     sprite_id: str
 
