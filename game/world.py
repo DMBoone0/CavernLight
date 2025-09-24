@@ -25,8 +25,8 @@ class World:
     def add_component(self, eid: int, component):
         self.components[type(component)][eid] = component
     
-    def get_component(self, component):
-        return self.components[type(component)]
+    def get_component(self, component_type):
+        return self.components.get(component_type, {})
     
     def remove_entity(self, eid):
         self.entities.discard(eid)

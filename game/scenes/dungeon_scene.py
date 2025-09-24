@@ -5,11 +5,11 @@ License: MIT
 Scene that contains the dungeon world.
 """
 
-from scenes import Scene
-from world import World
-from components import Position, Direction, Collidable, PlayerControlled
-from systems import MovementSystem
-from engine.controllers import Command, CommandType
+from .scene import Scene
+from ..world import World
+from ..components import Position, Direction, Collidable, PlayerControlled
+from ..systems import MovementSystem
+from engine.controllers import CommandType
 
 class DungeonScene(Scene):
     def on_enter(self, prev_scene=None):
@@ -30,15 +30,18 @@ class DungeonScene(Scene):
     
     def handle_command(self, command):
         if command.type == CommandType.MOVE_FORWARD:
-            player_direction = self.world.get_component(Direction)[self.player_id]
+            directions = self.world.get_component(Direction)
+            player_direction = directions[self.player_id]
             self.movement_system.move(self.player_id, player_direction.x, player_direction.y)
         elif command.type == CommandType.TURN_RIGHT:
             self.movement_system.rotate(self.player_id, False)
         elif command.type == CommandType.TURN_LEFT:
             self.movement_system.rotate(self.player_id, True)
         
-        for eid in self.world.get_component(Position):
-            print(Position)
+        for pos in self.world.get_component(Position).values():
+            print(f'x: {pos.x}, y: {pos.y}')
+        for dir in self.world.get_component(Direction).values():
+            print(f'<{dir.x} {dir.y}>')
     
     def render(self, renderer):
         pass
