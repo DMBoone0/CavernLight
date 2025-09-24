@@ -7,6 +7,7 @@ Primary controller for the flow of the engine. Runs the game loop and orchestrat
 import pygame
 from config import *
 from .command_dispatcher import CommandDispatcher, CommandType
+from game.scenes import DungeonScene
 
 class GameController:
     def __init__(self):
@@ -17,6 +18,12 @@ class GameController:
         self.running = True
 
         self.dispatcher = CommandDispatcher()
+        self.dispatcher.bind_key(pygame.K_w, CommandType.MOVE_FORWARD)
+        self.dispatcher.bind_key(pygame.K_s, CommandType.MOVE_BACKWARD)
+        self.dispatcher.bind_key(pygame.K_a, CommandType.TURN_LEFT)
+        self.dispatcher.bind_key(pygame.K_d, CommandType.TURN_RIGHT)
+
+        self.scene = DungeonScene()
     
     def quit(self):
         self.running = False
@@ -37,4 +44,4 @@ class GameController:
                 else:
                     command = self.dispatcher.dispatch(event)
                     if command:
-                        print(command)
+                        self.scene.handle_command(command)
