@@ -6,7 +6,7 @@ Movement system for moving entities within the dungeon grid.
 """
 
 from ..world import World
-from ..component import Position, Collidable
+from ..components import Position, Collidable
 
 class MovementSystem:
     def __init__(self, world: World) -> None:
