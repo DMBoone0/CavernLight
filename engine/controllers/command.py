@@ -1,3 +1,10 @@
+"""
+Author: Dillon Boone
+License: MIT
+
+Expanded command pattern. Reified method call that includes a command type enum.
+"""
+
 from dataclasses import dataclass
 from enum import Enum, auto
 from typing import Any, Optional
