@@ -9,3 +9,5 @@ Will probably be broken up later to match the MVC architecture and separation of
 # Window info
 WINDOW_WIDTH, WINDOW_HEIGHT = 1280, 720
 CAPTION = 'CavernLight Engine'
+
+TILE_SIZE = 64
