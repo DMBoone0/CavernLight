@@ -6,7 +6,7 @@ Movement system for moving entities within the dungeon grid.
 """
 
 from ..world import World
-from ..components import Position, Collidable
+from ..components import Position, Direction, Collidable
 
 class MovementSystem:
     def __init__(self, world: World) -> None:
@@ -25,3 +25,15 @@ class MovementSystem:
             
         positions[eid].x = new_x
         positions[eid].y = new_y
+    
+    def rotate(self, eid, clockwise: bool):
+        directions = self.world.get_component(Direction)
+        if directions[eid]:
+            if clockwise:
+                temp_x = directions[eid].x
+                directions[eid].x = directions[eid].y
+                directions[eid].y = -temp_x
+            else:
+                temp_x = directions[eid].x
+                directions[eid].x = -directions[eid].y
+                directions[eid].y = temp_x
