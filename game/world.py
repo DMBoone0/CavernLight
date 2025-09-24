@@ -15,10 +15,12 @@ class World:
         self.components = defaultdict(dict)
         self.entities = set()
 
-    def create_entity(self):
+    # Creates and stores a new entity, returns the id of that entity.
+    def create_entity(self) -> int:
         eid = self._next_entity_id
         self._next_entity_id += 1
         self.entities.add(eid)
+        return eid
     
     def add_component(self, eid: int, component):
         self.components[type(component)][eid] = component
