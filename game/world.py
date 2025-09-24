@@ -20,11 +20,11 @@ class World:
         self._next_entity_id += 1
         self.entities.add(eid)
     
-    def add_component(self, eid, component):
+    def add_component(self, eid: int, component):
         self.components[type(component)][eid] = component
     
     def get_component(self, component):
-        return self.components[type(component)].items()
+        return self.components[type(component)]
     
     def remove_entity(self, eid):
         self.entities.discard(eid)
