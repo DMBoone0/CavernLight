@@ -39,7 +39,7 @@ class GameController:
 
             # Event loop
             for event in pygame.event.get():
-                if event == pygame.QUIT:
+                if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
                 else:
