@@ -1,0 +1,1 @@
+# /game/maps/__init__.py

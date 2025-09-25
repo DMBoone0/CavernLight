@@ -37,11 +37,6 @@ class DungeonScene(Scene):
             self.movement_system.rotate(self.player_id, False)
         elif command.type == CommandType.TURN_LEFT:
             self.movement_system.rotate(self.player_id, True)
-        
-        for pos in self.world.get_component(Position).values():
-            print(f'x: {pos.x}, y: {pos.y}')
-        for dir in self.world.get_component(Direction).values():
-            print(f'<{dir.x} {dir.y}>')
     
     def render(self, renderer):
         pass
