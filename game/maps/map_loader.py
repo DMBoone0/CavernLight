@@ -13,15 +13,15 @@ from .map_data import MapData
 def load_map_json(filename) -> MapData:
     """Load a MapData object from a JSON file"""
     path = Path(join('data', 'maps', filename))
-    with path.open("r", encoding="utf-8") as file:
+    with path.open('r', encoding='utf-8') as file:
         data = json.load(file)
 
     if 'tiles' not in data:
         raise ValueError(f'Invalid map file {path}: missing "tiles"')
     
     return MapData(
-        tiles=data['tiles'],
-        spawns=data.get('spawns', {}),
-        entities=data.get('entities',[]),
-        triggers=data.get('triggers', [])
-    )
+    tiles=data['tiles'],
+    spawns={name: tuple(pos) for name, pos in data.get('spawns', {}).items()},
+    entities=[{'name': entity['name'], 'pos': tuple(entity['pos'])} for entity in data.get('entities', [])],
+    triggers=data.get('triggers', []),
+)
